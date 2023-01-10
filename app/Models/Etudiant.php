@@ -10,6 +10,6 @@ class Etudiant extends Model
     use HasFactory;
     protected $table = "etudiants";
     protected $primary_key = "id";
-    protected $fillables = ["id", "cin", "nom", "prenom", "langage_c", "tp_informatique", "algorithmique", "dateNaissance", "matiere_id"];
+    protected $fillables = ["id", "cin", "nom", "prenom", "langage_c", "tp_informatique", "algorithmique", "moyenne", "dateNaissance", "matiere_id"];
 
 }

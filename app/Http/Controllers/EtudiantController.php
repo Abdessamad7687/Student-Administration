@@ -30,12 +30,21 @@ class EtudiantController extends Controller
             
             //$user = DB::select('select * from etudiants where cin = :cin', ['cin'=> $request->cin]);
             $user = Etudiant::where('cin', $request->cin)->first();
-            //dd($user);
             if($user){
                 return view('/acceuil', compact('user'));
             }
             return back()->with('error', 'Incorrect CIN');
         }        
+    }
+
+
+    public function Classement() {
+        $users = Etudiant::orderBy('moyenne', 'DESC')->get();
+        foreach($users as $user){
+            $moyenne = (($user->langage_c * 4) + ($user->tp_informatique * 2) + ($user->algorithmique * 3)) / 9;
+            $user->moyenne = $moyenne;
+        }
+        return view('classement', compact('users'));
     }
 
 
