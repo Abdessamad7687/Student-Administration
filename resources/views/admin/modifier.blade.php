@@ -11,12 +11,13 @@
                     Retour</a>
             </div>
             <div class="cold-md-8">
-                <h2 class="text-center mt-5" >Ajouter un etudiant</h2>
+                <h2 class="text-center mt-5" >Etudiant {{ $user->nom }}</h2>
             </div>
             
         </div>
         <form class="form mt-5" method="post"  enctype="multipart/form-data">        
             @csrf
+            @method("PATCH")
             @if(session()->has('message'))
                 <div class="alert alert-info  form-group my-3 mx-auto col-md-6">
                     {{ session()->get('message') }}
@@ -29,7 +30,7 @@
             <div class="form-group my-3 mx-auto col-md-6">
                 <div>
                     <label for="nom">CIN</label>
-                    <input type="text" name="cin" class="form-control" value="{{old('cin')}}"   placeholder="cin de l'etudiant">
+                    <input type="text" name="cin" class="form-control" value="{{$user->cin}}"   placeholder="cin de l'etudiant">
                 </div>
                 
                 @error('cin')
@@ -43,7 +44,7 @@
             <div class="form-group my-3 mx-auto col-md-6">
                 <div>
                     <label for="nom">Nom</label>
-                    <input type="text" name="nom" class="form-control" value="{{old('nom')}}"   placeholder="Nom de l'etudiant">
+                    <input type="text" name="nom" class="form-control" value="{{$user->nom}}"   placeholder="Nom de l'etudiant">
                 </div>
                 
                 @error('nom')
@@ -58,7 +59,7 @@
            <div class="form-group my-3 mx-auto col-md-6">
                 <div>
                    <label for="prenom">Prenom</label>
-                    <input type="text" name="prenom" class="form-control" value="{{old('Prenom')}}"   placeholder="Prenom de l'etudiant">
+                    <input type="text" name="prenom" class="form-control" value="{{$user->prenom}}"   placeholder="Prenom de l'etudiant">
                 </div>
                 
                 @error('prenom')
@@ -72,7 +73,8 @@
            <div class="form-group my-3 mx-auto col-md-6">
                 <div>
                    <label for="prenom">Note Langage C</label>
-                    <input type="number" name="langage_c" class="form-control" value="{{old('langage_c')}}">
+                    <input type="number" name="langage_c" class="form-control"
+                     value="{{$user->langage_c}}">
                 </div>
                 
                 @error('langage_c')
@@ -86,7 +88,7 @@
            <div class="form-group my-3 mx-auto col-md-6">
                 <div>
                    <label for="prenom">Note Tp informatique</label>
-                    <input type="number" name="tp_informatique" class="form-control" value="{{old('tp_informatique')}}">
+                    <input type="number" name="tp_informatique" class="form-control" value="{{$user->tp_informatique}}">
                 </div>
                 
                 @error('tp_informatique')
@@ -99,8 +101,8 @@
 
            <div class="form-group my-3 mx-auto col-md-6">
                 <div>
-                   <label for="prenom">Note Algorithmique</label>
-                    <input type="number" name="Algorithmique" class="form-control" value="{{old('Algorithmique')}}">
+                   <label for="note">Note Algorithmique</label>
+                    <input type="number" name="Algorithmique" class="form-control" value="{{$user->algorithmique}}">
                 </div>
                 
                 @error('Algorithmique')
@@ -113,8 +115,9 @@
 
            <div class="form-group my-3 mx-auto col-md-6">
                 <div>
-                   <label for="prenom">Moyenne</label>
-                    <input type="number" name="moyenne" class="form-control" value="{{old('moyenne')}}">
+                   <label for="note">Moyenne</label>
+                    <input type="number" name="moyenne" class="form-control"
+                     value="{{$user->moyenne}}">
                 </div>
                 
                 @error('moyenne')
@@ -128,7 +131,8 @@
            <div class="form-group my-3 mx-auto col-md-6">
                 <div>
                    <label for="prenom">Date de naissance</label>
-                    <input type="text" name="dateNaissance" class="form-control" value="{{old('dateNaissance')}}" placeholder="01-01-1999">
+                    <input type="text" name="dateNaissance" class="form-control"
+                     value="{{$user->dateNaissance}}" placeholder="01-01-1999">
                 </div>
                 
                 @error('dateNaissance')
@@ -142,7 +146,7 @@
                         <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
                         <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
                         </svg>
-                    Ajouter</button>
+                    Modifier</button>
                 </div>
 
             

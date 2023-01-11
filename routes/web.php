@@ -16,4 +16,7 @@ Route::delete('/{id}', [EtudiantController::class, 'destroy'])->name('destroy');
 Route::get('/dashboard', [AdminController::class, 'Dashboard']);
 Route::get('/ajouter', [AdminController::class, 'Ajouter'])->name('ajouter');
 Route::post('/ajouter', [AdminController::class, 'store'])->name('store');
+Route::get('/edit/{id}', [AdminController::class, 'edit']);
+Route::patch('/edit/{id}', [AdminController::class, 'update']);
+Route::get('/voir/{id}', [AdminController::class, 'voir'])->name('voir');
 
