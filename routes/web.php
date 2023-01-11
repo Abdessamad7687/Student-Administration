@@ -19,4 +19,5 @@ Route::post('/ajouter', [AdminController::class, 'store'])->name('store');
 Route::get('/edit/{id}', [AdminController::class, 'edit']);
 Route::patch('/edit/{id}', [AdminController::class, 'update']);
 Route::get('/voir/{id}', [AdminController::class, 'voir'])->name('voir');
+Route::delete('/{id}', [AdminController::class, 'destroy'])->name('destroy');
 

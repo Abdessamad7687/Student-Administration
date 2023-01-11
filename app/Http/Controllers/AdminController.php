@@ -103,5 +103,14 @@ class AdminController extends Controller
     public function Ajouter() {
         return view('admin.ajouter');  
     }
+
+
+
+
+    public function destroy($id) {
+        $user = Etudiant::find($id);
+        $user->delete();
+        return back()->with('message', 'Etudiant Supprimé');
+    }
     
 }
