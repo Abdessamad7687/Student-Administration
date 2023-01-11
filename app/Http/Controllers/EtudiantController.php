@@ -14,10 +14,10 @@ class EtudiantController extends Controller
     }
 
 
-    public function notes(){
+    // public function notes(){
 
-        return view('notes');
-    }
+    //     return view('notes');
+    // }
 
 
 
@@ -45,6 +45,11 @@ class EtudiantController extends Controller
             $user->moyenne = $moyenne;
         }
         return view('classement', compact('users'));
+    }
+
+    public function ClassementParLangageC() {
+        $users = Etudiant::orderBy('langage_c', 'DESC')->get();
+        return view('ClassementParLangageC', compact('users'));
     }
 
 
@@ -121,7 +126,7 @@ class EtudiantController extends Controller
      */
     public function destroy($id)
     {
-        $alms = Etudiant::find($id);
-        $alms->delete();
+        $user = Etudiant::find($id);
+        $user->delete();
     }
 }

@@ -19,8 +19,11 @@ return new class extends Migration
             $table->string('cin');
             $table->string('nom');
             $table->string('prenom');
+            $table->double('langage_c');
+            $table->double('tp_informatique');
+            $table->double('algorithmique');
+            $table->double('moyenne');
             $table->string('dateNaissance');
-            $table->foreignIdFor(Matiere::class);
             $table->timestamps();
         });
     }

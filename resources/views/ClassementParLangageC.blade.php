@@ -3,16 +3,13 @@
 
 <div class="container mt-5">
          <!-- table ordred by classement -->
-         <h2 class="text-center text-secondary">Classement des Etudiants dans la classe</h2>
+         <h2 class="text-center text-secondary">Classement des Etudiants dans le Langage C</h2>
          <div class="col-md-12 table">
-                        <table class="table table-hover  mt-5 ">
+                        <table class="table table-hover mt-5 w-50 mx-auto">
                             <thead>
                                 <th>N°</th>
                                 <th>Nom</th>
-                                <th>Langage C</th>
-                                <th>TP informatique</th>
-                                <th>Algorithmique</th>
-                                <th>Moyenne</th>
+                                <th>Note</th>
                             </thead>
                             <tbody>
                                 @foreach($users as $usr)
@@ -20,9 +17,6 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $usr['nom']}}</td>
                                     <td>{{ $usr['langage_c']}}</td>
-                                    <td> {{$usr['tp_informatique'] }}</td>
-                                    <td> {{$usr['algorithmique'] }}</td>
-                                    <td> {{$usr['moyenne'] }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
